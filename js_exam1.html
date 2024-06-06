@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .calculator {
+      background-color: #fff;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-top: 0;
+    }
+
+    input[type="number"], input[type="text"], select {
+      width: 100%;
+      height: 30px;
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      width: 100%;
+      height: 30px;
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #3e8e41;
+    }
+
+    #result {
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="calculator">
+    <h1>Calculator</h1>
+
+    <input type="number" id="number1" placeholder="Number 1"><br><br>
+
+    <select id="operator">
+      <option value="+">Addition (+)</option>
+      <option value="-">Subtraction (-)</option>
+      <option value="*">Multiplication (*)</option>
+      <option value="/">Division (/)</option>
+    </select><br><br>
+
+    <input type="number" id="number2" placeholder="Number 2"><br><br>
+
+    <button onclick="calculate()">=</button><br><br>
+
+    <input type="text" id="result" placeholder="Result">
+  </div>
+  <script>
+
+    function add(a, b) {
+      return a + b;
+    }
+
+    function subtract(a, b) {
+      return a - b;
+    }
+
+    function multiply(a, b) {
+      return a * b;
+    }
+
+    function divide(a, b) {
+    return a / b;
+    }
+
+    function calculate() {
+      var number1 = parseFloat(document.getElementById('number1').value);
+      var number2 = parseFloat(document.getElementById('number2').value);
+      var operator = document.getElementById('operator').value;
+      var result;
+
+      switch (operator) {
+        case '+':
+          result = add(number1,number2);
+          break;
+        case '-':
+          result = subtract(number1,number2);
+          break;
+        case '*':
+          result = multiply(number1,number2);
+          break;
+        case '/':
+          result = divide(number1,number2);
+          break;
+        default:
+          result = "Invalid operator";
+      }
+
+      document.getElementById('result').value = result;
+    }
+
+    
+  </script>
+
+</body>
+
+</html>
